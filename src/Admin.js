@@ -111,8 +111,8 @@ const Admin = () => {
   return (
     <div>
       <br />
-      <p className='text-3xl'>Admin Dashboard</p>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-12">
+      <p className='text-3xl p-4 text-center'>Admin Dashboard</p>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-0 p-12">
         <div>
           <button onClick={handleClickTab1} className='p-4 bg-blue-400 block'>All upcoming Classes</button>
           <br />

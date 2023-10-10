@@ -29,9 +29,7 @@ const PostClass = () => {
       { method: 'POST', headers: { 'Content-Type': "application/json" }, body: JSON.stringify({ id: id, date: date, day: day, classTime: classTime, subject: subject, chapterTopic: chapterTopic, instructor: instructor }) })
       .then(response => response.json())
       .then((data) => {
-        if (data.success === true) {
-          console.log(data);
-        }
+       console.log(data);
       })
   }
 

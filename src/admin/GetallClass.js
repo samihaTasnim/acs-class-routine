@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link } from "react-router-dom";
 
 const GetallClass = () => {
 
@@ -21,14 +22,18 @@ const GetallClass = () => {
     <div>
        {classInfo.map((info) => {
         return (
-          <div key={info.id} className="bg-gradient-to-r from-cyan-500 to-blue-500 p-8 mx-28 rounded-2xl text-center">
-            <p>Date: {info.date}</p>
-            <p>Day: {info.day}</p>
-            <p>Class time: {info.classTime}</p>
-            <p>Subject: {info.subject}</p>
-            <p>Chapter Topic: {info.chapterTopic}</p>
+          <>
+          <div key={info.id}  className="bg-gradient-to-r from-cyan-500 to-blue-500 p-8 rounded-2xl text-center flex">
+            <p className='mr-4'>Date: {info.date}</p>
+            <p className='mr-4'>Day: {info.day}</p>
+            <p className='mr-4'>Class time: {info.classTime}</p>
+            <p className='mr-4'>Subject: {info.subject}</p>
+            <p className='mr-4'>Chapter Topic: {info.chapterTopic}</p>
             <p className='mb-4'>Instructor: {info.instructor}</p>
+            {/* <Link to={info.id} className='bg-white p-2 rounded-xl mx-2'>Update this class</Link> */}
           </div>
+          <br />
+          </>
         )
       })}
     </div>
