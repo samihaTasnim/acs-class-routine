@@ -1,42 +1,45 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 
 const UpdateClass = () => {
 
-  const [classInfo, setClassInfo] = useState([]);
+  // id - date + month number + year
+  // 	Ex: 09102023
+  // date - Date in Month date, year format
+  // 	Ex: October 9, 2023
+  // day - Weekday name
+  // 	Ex: Saturday
+  // classTime - Time in 24 hour format
+  // 	Ex: 23:00
+  // subject - Subject name
+  // chapterTopic - Chapter topic name
+  // instructor - Instructor name
 
-  useEffect(() => {
-    axios.patch('https://acs-routine.cyclic.app/class')
-      .then(function (response) {
-        setClassInfo(response.data);
+  const [id, setId] = useState("");
+  const [date, setDate] = useState("");
+  const [day, setDay] = useState("");
+  const [classTime, setClassTime] = useState("");
+  const [subject, setSubject] = useState("");
+  const [chapterTopic, setChapterTopic] = useState("");
+  const [instructor, setInstructor] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    fetch('https://acs-routine.cyclic.app/class',
+      { method: 'PATCH', headers: { 'Content-Type': "application/json" }, body: JSON.stringify({ id: id, date: date, day: day, classTime: classTime, subject: subject, chapterTopic: chapterTopic, instructor: instructor }) })
+      .then(response => response.json())
+      .then((data) => {
+       console.log(data);
       })
-      .catch(function (error) {
-        // handle error
-        console.log(error);
-      })
+  }
+
+  // useEffect(() => {
+  //  axios.get
     
-  }, [])
+  // }, [])
+
 
   return (
-    <div>
-       {classInfo.map((info) => {
-        return (
-          <>
-          <div key={info.id}  className="bg-gradient-to-r from-cyan-500 to-blue-500 p-8 rounded-2xl text-center flex">
-            <p className='mr-4'>Date: {info.date}</p>
-            <p className='mr-4'>Day: {info.day}</p>
-            <p className='mr-4'>Class time: {info.classTime}</p>
-            <p className='mr-4'>Subject: {info.subject}</p>
-            <p className='mr-4'>Chapter Topic: {info.chapterTopic}</p>
-            <p className='mb-4'>Instructor: {info.instructor}</p>
-            <Link to={info.id} className='bg-white p-2 rounded-xl mx-2'>Update this class</Link>
-          </div>
-          <br />
-          </>
-        )
-      })}
-    </div>
+    <div>update class info</div>
   );
 };
 
