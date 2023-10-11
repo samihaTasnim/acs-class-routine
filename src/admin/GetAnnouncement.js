@@ -7,7 +7,7 @@ const GetAnnouncement = () => {
   const [announcement, setAnnouncement] = useState([]);
 
   useEffect(() => {
-    axios.get('https://acs-routine.cyclic.app/announcement')
+    axios.get('https://acs-routine.onrender.com/announcement')
       .then(function (response) {
         console.log(response.data);
         setAnnouncement(response.data);

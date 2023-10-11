@@ -9,7 +9,7 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    axios.post('https://acs-routine.cyclic.app/login', { email: email, password: password }, { headers: { 'Content-Type': "application/json" } })
+    axios.post('/login', { email: email, password: password }, { headers: { 'Content-Type': "application/json" } })
       .then(function (response) {
         // handle success
         console.log(response);

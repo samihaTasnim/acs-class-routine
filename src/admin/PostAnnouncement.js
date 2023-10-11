@@ -6,7 +6,7 @@ const PostAnnouncement = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    fetch('https://acs-routine.cyclic.app/announcement',
+    fetch('https://acs-routine.onrender.com/announcement',
       { method: 'POST', headers: { 'Content-Type': "application/json" }, body: JSON.stringify({ notice: notice }) })
       .then(response => response.json())
       .then((data) => {

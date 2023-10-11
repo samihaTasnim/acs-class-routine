@@ -25,7 +25,7 @@ const PostClass = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    fetch('https://acs-routine.cyclic.app/class',
+    fetch('https://acs-routine.onrender.com/class',
       { method: 'POST', headers: { 'Content-Type': "application/json" }, body: JSON.stringify({ id: id, date: date, day: day, classTime: classTime, subject: subject, chapterTopic: chapterTopic, instructor: instructor }) })
       .then(response => response.json())
       .then((data) => {

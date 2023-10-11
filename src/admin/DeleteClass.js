@@ -7,7 +7,7 @@ const DeleteClass = () => {
   const [classInfo, setClassInfo] = useState([]);
 
   useEffect(() => {
-    axios.get('https://acs-routine.cyclic.app/class')
+    axios.get('https://acs-routine.onrender.com/class')
       .then(function (response) {
         setClassInfo(response.data);
       })
@@ -19,7 +19,7 @@ const DeleteClass = () => {
   }, [])
 
   const deleteClass = (classID) => {
-    axios.delete(`https://acs-routine.cyclic.app/class/${classID}`)
+    axios.delete(`https://acs-routine.onrender.com/class/${classID}`)
     .then(function (response) {
       console.log("ok");
     })

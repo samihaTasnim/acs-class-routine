@@ -9,7 +9,7 @@ function App() {
   const [announcement, setAnnouncement] = useState([]);
 
   useEffect(() => {
-    axios.get('https://acs-routine.cyclic.app/class')
+    axios.get('https://acs-routine.onrender.com/class')
       .then(function (response) {
         setClassInfo(response.data);
       })
@@ -21,7 +21,7 @@ function App() {
   }, [])
 
   useEffect(() => {
-    axios.get('https://acs-routine.cyclic.app/announcement')
+    axios.get('https://acs-routine.onrender.com/announcement')
       .then(function (response) {
         setAnnouncement(response.data);
         console.log(response.data);

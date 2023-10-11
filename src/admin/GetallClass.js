@@ -7,7 +7,7 @@ const GetallClass = () => {
   const [classInfo, setClassInfo] = useState([]);
 
   useEffect(() => {
-    axios.get('https://acs-routine.cyclic.app/class')
+    axios.get('https://acs-routine.onrender.com/class')
       .then(function (response) {
         setClassInfo(response.data);
       })
